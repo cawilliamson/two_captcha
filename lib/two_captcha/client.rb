@@ -96,6 +96,7 @@ module TwoCaptcha
     #
     # @param [Hash] options Options hash.
     # @option options [String]  :googlekey The open key of the site in which recaptcha is installed.
+    # @option options [String]  :invisible Invisibility state of captcha being solved.
     # @option options [String]  :pageurl The URL of the page where the recaptcha is encountered.
     #
     # @return [TwoCaptcha::Captcha] The solution of the given captcha.
@@ -108,6 +109,7 @@ module TwoCaptcha
       upload_options = {
         method: 'userrecaptcha',
         googlekey: options[:googlekey],
+        invisible: options[:invisible],
         pageurl: options[:pageurl]
       }
       decoded_captcha = upload(upload_options)
